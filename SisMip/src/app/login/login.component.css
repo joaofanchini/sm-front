@@ -1,0 +1,16 @@
+.divLogin{
+    position:fixed;
+    top: 45%;
+    left: 50%;
+    width:30em;
+    height:25em;
+    margin-top: -9em;
+    margin-left: -15em;
+    border: 1px solid #00ff85;
+    background-color: #ffffff;
+    text-align: center;
+    border-radius: 30px;
+}
+.imgLogo{
+    width: 50%;
+}
