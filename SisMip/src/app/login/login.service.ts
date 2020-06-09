@@ -33,6 +33,7 @@ export class LoginService implements OnInit {
         this.setCookie(Token, "");
         this.usuarioLogado = false;
         this.mostrarMenuEmitter.emit(this.usuarioLogado);
+        document.location.reload();
     }
     setTokenSessionStorage(token: string): void {
         sessionStorage.setItem(Token, token);

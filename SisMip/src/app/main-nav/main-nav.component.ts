@@ -10,7 +10,7 @@ import { LoginService } from '../login/login.service';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
-
+  isExpanded: boolean = false;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),

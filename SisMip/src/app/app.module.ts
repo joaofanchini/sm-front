@@ -19,13 +19,23 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes'
 import { LoginService } from './login/login.service';
 import { NeedAuthGuard } from './guards/need-auth-guard';
+import { MatCardModule } from '@angular/material/card';
+import { ChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './dashboard/bar-chart/bar-chart.component';
+import { DoughnutChartComponent } from './dashboard/doughnut-chart/doughnut-chart.component';
+import { RadarChartComponent } from './dashboard/radar-chart/radar-chart.component';
+import { LineChartComponent } from './dashboard/line-chart/line-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainNavComponent,
-    DashboardComponent
+    DashboardComponent,
+    BarChartComponent,
+    DoughnutChartComponent,
+    RadarChartComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +49,8 @@ import { NeedAuthGuard } from './guards/need-auth-guard';
     MatIconModule,
     MatListModule,
     FormsModule,
+    MatCardModule,
+    ChartsModule,
     [RouterModule.forRoot(appRoutes, { useHash: false })]
   ],
   providers: [LoginService, NeedAuthGuard],
