@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   usuario: UsuarioModel = new UsuarioModel();
   constructor(private login: LoginService, private router: Router) { }
   tryLogin() {
-    this.login.logar(this.usuario);
+    this.login.logar(this.usuario).subscribe();
   }
   ngOnInit() {
     if (this.login.isLogged()) {

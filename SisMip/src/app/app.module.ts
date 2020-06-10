@@ -25,6 +25,7 @@ import { BarChartComponent } from './dashboard/bar-chart/bar-chart.component';
 import { DoughnutChartComponent } from './dashboard/doughnut-chart/doughnut-chart.component';
 import { RadarChartComponent } from './dashboard/radar-chart/radar-chart.component';
 import { LineChartComponent } from './dashboard/line-chart/line-chart.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { LineChartComponent } from './dashboard/line-chart/line-chart.component'
     FormsModule,
     MatCardModule,
     ChartsModule,
+    HttpClientModule,
     [RouterModule.forRoot(appRoutes, { useHash: false })]
   ],
   providers: [LoginService, NeedAuthGuard],

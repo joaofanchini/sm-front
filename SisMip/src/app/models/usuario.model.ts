@@ -6,4 +6,5 @@ export class UsuarioModel{
     senha: string;
     token: string;
     manterConectado: boolean;
+    resultadoLogin: string;
 }

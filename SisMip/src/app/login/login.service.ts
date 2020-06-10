@@ -1,6 +1,10 @@
 import { Injectable, EventEmitter, OnInit } from '@angular/core';
 import { UsuarioModel } from '../models/usuario.model';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 
 const Token = 'auth';
@@ -8,25 +12,42 @@ const Token = 'auth';
     providedIn: 'root'
 })
 export class LoginService implements OnInit {
-    private usuarioLogado: boolean = false;
+    TOKEN_KEY: string = "TOKEN";
+    usuarioLogado: boolean = false;
     mostrarMenuEmitter = new EventEmitter<boolean>();
-    constructor(private router: Router) {
-
+    httpOptions: {
+        responseType?: 'json',
+        withCredentials?: false,
     }
-    logar(usuario: UsuarioModel): UsuarioModel {
-        usuario.id = 1;
-        usuario.nome = "Usuario Teste";
-        usuario.token = "0x5710892237DB93A709F1B5D65F928B4EA2458EF22F7F70E4E3CDE4318B940ECC";
-        this.usuarioLogado = true;
-        this.mostrarMenuEmitter.emit(this.usuarioLogado);
-        if (usuario.token) {
-            if (usuario.manterConectado)
-                this.setTokenCookie(usuario.token);
-            else
-                this.setTokenSessionStorage(usuario.token);
-            this.router.navigateByUrl('/dashboard');
-        }
-        return usuario;
+    constructor(private router: Router, private http: HttpClient) { }
+    logar(usuario: UsuarioModel) {
+        usuario.resultadoLogin = '';
+        let email = usuario.email;
+        let password = usuario.senha;
+        return this.http.post<any>(`${environment.apiUrl}/users/auth`,
+            {
+                email,
+                password
+            },
+            this.httpOptions)
+            .pipe(
+                map(user => {
+                    if (user.token) {
+                        this.usuarioLogado = true;
+                        this.mostrarMenuEmitter.emit(this.usuarioLogado);
+                        if (usuario.manterConectado)
+                            this.setTokenCookie(user.token);
+                        else
+                            this.setTokenSessionStorage(user.token);
+                        this.router.navigateByUrl('/dashboard');
+                    }
+                    return user;
+                }),
+                catchError(err => {
+                    usuario.resultadoLogin = 'Erro ao realizar o login do usuario. Tente novamente';
+                    return throwError(err);
+                })
+            );
     }
     logout() {
         sessionStorage.clear();
