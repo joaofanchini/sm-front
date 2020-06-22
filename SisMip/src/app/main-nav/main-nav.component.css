@@ -15,3 +15,9 @@
     top: 0;
     z-index: 1;
 }
+
+.is-active {
+    color: red;
+    border-right: 5px solid red;
+    max-width: 99%;
+}

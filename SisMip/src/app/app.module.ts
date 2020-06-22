@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -26,6 +27,9 @@ import { DoughnutChartComponent } from './dashboard/doughnut-chart/doughnut-char
 import { RadarChartComponent } from './dashboard/radar-chart/radar-chart.component';
 import { LineChartComponent } from './dashboard/line-chart/line-chart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PlantioComponent } from './plantio/plantio.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { CadastroPlantioComponent } from './Plantio/cadastro-plantio/cadastro-plantio.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     BarChartComponent,
     DoughnutChartComponent,
     RadarChartComponent,
-    LineChartComponent
+    LineChartComponent,
+    PlantioComponent,
+    CadastroPlantioComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +59,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     ChartsModule,
     HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
     [RouterModule.forRoot(appRoutes, { useHash: false })]
   ],
   providers: [LoginService, NeedAuthGuard],

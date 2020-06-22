@@ -6,3 +6,31 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .container{
     margin: 3%;
 }
+.row{
+    display: flex; 
+    flex-direction: row;
+}
+.item1{
+    order: 1;
+    flex-grow: 1;
+}
+.item2{
+    order: 2;
+    flex-grow: 1;
+    margin-left: 1%;
+}
+.item3{
+    order: 3;
+    flex-grow: 1;
+    margin-left: 1%;
+}
+.item4{
+    order: 4;
+    flex-grow: 1;
+    margin-left: 1%;
+}
+.item5{
+    order: 5;
+    flex-grow: 1;
+    margin-left: 1%;
+}

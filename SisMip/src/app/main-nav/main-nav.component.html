@@ -4,7 +4,11 @@
             <mat-icon aria-label="Menu">menu</mat-icon>
         </button>
         <mat-nav-list>
-            <mat-list-item>
+            <mat-list-item routerLink="/dashboard" [routerLinkActive]="['is-active']">
+                <mat-icon mat-list-icon>bar_chart</mat-icon>
+                <h4 mat-line *ngIf="isExpanded">Dashboard</h4>
+            </mat-list-item>
+            <mat-list-item routerLink="/plantio" [routerLinkActive]="['is-active']">
                 <mat-icon mat-list-icon>eco</mat-icon>
                 <h4 mat-line *ngIf="isExpanded">Plantio</h4>
             </mat-list-item>

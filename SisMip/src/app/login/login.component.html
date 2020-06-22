@@ -7,17 +7,22 @@
             <div>
                 <mat-form-field style="width: 90%;">
                     <mat-label>Email</mat-label>
-                    <input matInput type="email" [(ngModel)]="usuario.email" id="txtEmail" name="email" placeholder="Ex. usuario@exemplo.com" autocomplete="off">
+                    <input matInput type="email" [(ngModel)]="usuario.email" id="txtEmail" name="email"
+                        placeholder="Ex. usuario@exemplo.com" autocomplete="off">
                 </mat-form-field>
             </div>
             <div class="">
                 <mat-form-field style="width: 90%;">
                     <mat-label>Senha</mat-label>
-                    <input matInput type="password" [(ngModel)]="usuario.senha" id="txtSenha" name="senha" >
+                    <input matInput type="password" [(ngModel)]="usuario.senha" id="txtSenha" name="senha">
                 </mat-form-field>
             </div>
+            <div>
+                <label style="color: red;">{{usuario.resultadoLogin}}</label>
+            </div>
             <div style="text-align: left;padding-left: 5%;">
-                <mat-slide-toggle color="" [(ngModel)]="usuario.manterConectado" id="rbManter" name="manterConectado" >Mantenha-me conectado</mat-slide-toggle>
+                <mat-slide-toggle color="" [(ngModel)]="usuario.manterConectado" id="rbManter" name="manterConectado">
+                    Mantenha-me conectado</mat-slide-toggle>
             </div>
             <div>
                 <button mat-raised-button color="primary" (click)="tryLogin()">Entrar</button>
