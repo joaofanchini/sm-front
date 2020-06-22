@@ -1,36 +1,79 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.container{
-    margin: 3%;
+html,
+body {
+    height: 100%;
 }
-.row{
-    display: flex; 
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+    margin: 3%;
+    position: relative;
+    min-height: 200px;
+}
+
+.row {
+    display: flex;
     flex-direction: row;
 }
-.item1{
+
+.item1 {
     order: 1;
     flex-grow: 1;
 }
-.item2{
+
+.item2 {
     order: 2;
     flex-grow: 1;
     margin-left: 1%;
 }
-.item3{
+
+.item3 {
     order: 3;
     flex-grow: 1;
     margin-left: 1%;
 }
-.item4{
+
+.item4 {
     order: 4;
     flex-grow: 1;
     margin-left: 1%;
 }
-.item5{
+
+.item5 {
     order: 5;
     flex-grow: 1;
     margin-left: 1%;
+}
+
+.table-container {
+    position: relative;
+    max-height: 400px;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+}
+
+.example-rate-limit-reached {
+    color: #980000;
+    max-width: 360px;
+    text-align: center;
+}
+
+
+/* Column Widths */
+
+.mat-column-number,
+.mat-column-state {
+    max-width: 64px;
+}
+
+.mat-column-created {
+    max-width: 124px;
 }

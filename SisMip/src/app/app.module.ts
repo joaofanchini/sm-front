@@ -30,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlantioComponent } from './plantio/plantio.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CadastroPlantioComponent } from './Plantio/cadastro-plantio/cadastro-plantio.component';
+import { PragasComponent } from './pragas/pragas.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CadastroPlantioComponent } from './Plantio/cadastro-plantio/cadastro-pl
     RadarChartComponent,
     LineChartComponent,
     PlantioComponent,
-    CadastroPlantioComponent
+    CadastroPlantioComponent,
+    PragasComponent
   ],
   imports: [
     BrowserModule,

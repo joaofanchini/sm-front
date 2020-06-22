@@ -12,7 +12,7 @@
                 <mat-icon mat-list-icon>eco</mat-icon>
                 <h4 mat-line *ngIf="isExpanded">Plantio</h4>
             </mat-list-item>
-            <mat-list-item>
+            <mat-list-item routerLink="/pragas" [routerLinkActive]="['is-active']">
                 <mat-icon mat-list-icon>pest_control</mat-icon>
                 <h4 mat-line *ngIf="isExpanded">Controle de Pragas</h4>
             </mat-list-item>
@@ -34,8 +34,8 @@
     <div class="example-sidenav-content" style="height: 100vh;">
         <mat-toolbar color="primary" *ngIf="mostrarMenu">
             <mat-toolbar-row>
-                <mat-icon mat-list-icon>insert_chart_outlined</mat-icon>
-                <h4 mat-line> Dashboard</h4>
+                <mat-icon mat-list-icon>{{icon}}</mat-icon>
+                <h4 mat-line> {{title}}</h4>
                 <span class="menu-spacer"></span>
                 <div fxShow="true" fxHide.lt-md style="flex: 1 1 auto; text-align: right;">
                     <a href="#" mat-button>
