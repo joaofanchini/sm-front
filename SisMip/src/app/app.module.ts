@@ -17,7 +17,7 @@ import { MatListModule } from '@angular/material/list';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
-import { appRoutes } from './app.routes'
+import { appRoutes } from './app.routes';
 import { LoginService } from './login/login.service';
 import { NeedAuthGuard } from './guards/need-auth-guard';
 import { MatCardModule } from '@angular/material/card';
@@ -29,7 +29,7 @@ import { LineChartComponent } from './dashboard/line-chart/line-chart.component'
 import { HttpClientModule } from '@angular/common/http';
 import { PlantioComponent } from './plantio/plantio.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { CadastroPlantioComponent } from './Plantio/cadastro-plantio/cadastro-plantio.component';
+import { CadastroPlantioComponent } from './plantio/cadastro-plantio/cadastro-plantio.component';
 import { PragasComponent } from './pragas/pragas.component';
 
 @NgModule({
@@ -68,4 +68,4 @@ import { PragasComponent } from './pragas/pragas.component';
   providers: [LoginService, NeedAuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
