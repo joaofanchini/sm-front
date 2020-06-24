@@ -7,45 +7,45 @@ import { CadastroPlantioComponent } from './plantio/cadastro-plantio/cadastro-pl
 import { PragasComponent } from './pragas/pragas.component';
 
 export const appRoutes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [NeedAuthGuard], // <---- connected Route with guard
-    data: {
-      title: 'Dashboard',
-      icon: 'bar_chart'
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    {
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [NeedAuthGuard], // <---- connected Route with guard
+        data: {
+            title: 'Dashboard',
+            icon: 'bar_chart'
+        }
+    },
+    {
+        path: 'plantio',
+        component: PlantioComponent,
+        canActivate: [NeedAuthGuard],
+        data: {
+            title: 'Plantio',
+            icon: 'eco'
+        }
+    },
+    {
+        path: 'plantio/cadastro',
+        component: CadastroPlantioComponent,
+        canActivate: [NeedAuthGuard],
+        data: {
+            title: 'Cadastrar Plantio',
+            icon: 'control_point'
+        }
+    },
+    {
+        path: 'pragas',
+        component: PragasComponent,
+        canActivate: [NeedAuthGuard],
+        data: {
+            title: 'Pragas',
+            icon: 'pest_control'
+        }
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     }
-  },
-  {
-    path: 'plantio',
-    component: PlantioComponent,
-    canActivate: [NeedAuthGuard],
-    data: {
-      title: 'Plantio',
-      icon: 'eco'
-    }
-  },
-  {
-    path: 'cadastroplantio',
-    component: CadastroPlantioComponent,
-    canActivate: [NeedAuthGuard],
-    data: {
-      title: 'Cadastrar Plantio',
-      icon: 'control_point'
-    }
-  },
-  {
-    path: 'pragas',
-    component: PragasComponent,
-    canActivate: [NeedAuthGuard],
-    data: {
-      title: 'Pragas',
-      icon: 'pest_control'
-    }
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  }
 ];
