@@ -46,6 +46,10 @@ export const appRoutes: Routes = [
     },
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        data: {
+            title: 'Login',
+            icon: 'pest_control'
+        }
     }
 ];

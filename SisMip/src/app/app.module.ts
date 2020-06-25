@@ -31,6 +31,7 @@ import { PlantioComponent } from './plantio/plantio.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CadastroPlantioComponent } from './plantio/cadastro-plantio/cadastro-plantio.component';
 import { PragasComponent } from './pragas/pragas.component';
+import { Interceptor } from './shared/https-request-interceptor';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { PragasComponent } from './pragas/pragas.component';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
+    Interceptor,
     [RouterModule.forRoot(appRoutes, { useHash: false })]
   ],
   providers: [LoginService, NeedAuthGuard],

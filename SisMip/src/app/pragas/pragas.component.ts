@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PragaService } from './praga.service';
+import { PragaModel } from '../models/Praga.model';
 
 @Component({
   selector: 'app-pragas',
@@ -9,20 +11,24 @@ import { Router, ActivatedRoute } from '@angular/router';
   ]
 })
 export class PragasComponent implements OnInit {
-  data: [] = [];
-  resultsLength = 135;
+  data: PragaModel[] = [];
+  resultsLength = 0;
   displayedColumns: string[] = [
-    'nome',
-    'descricao',
-    'na_fase_v',
-    'na_fase_r',
-    'initial_fase',
-    'end_fase'
+    'name',
+    'description',
+    'na_phase_v',
+    'na_phase_r',
+    'initial_phase',
+    'end_phase'
   ];
 
-  constructor() { }
+  constructor(private pragaService: PragaService) { }
 
   ngOnInit(): void {
+    this.pragaService.getAll().subscribe(pragas=>{
+      this.data = pragas;
+      this.resultsLength = pragas.length;
+    });
   }
 
 }

@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { stringify } from 'querystring';
 
 
 const Token = 'auth';
@@ -55,6 +56,12 @@ export class LoginService implements OnInit {
         this.usuarioLogado = false;
         this.mostrarMenuEmitter.emit(this.usuarioLogado);
         document.location.reload();
+    }
+    getToken() {
+        let tk = sessionStorage.getItem(Token);
+        if (tk)
+            return tk;
+        return this.getCookie(Token);
     }
     setTokenSessionStorage(token: string): void {
         sessionStorage.setItem(Token, token);

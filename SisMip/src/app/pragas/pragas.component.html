@@ -10,34 +10,34 @@
         <div class="table-container">
             <table mat-table [dataSource]="data" class="example-table" matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
                 <!-- Number Column -->
-                <ng-container matColumnDef="nome">
+                <ng-container matColumnDef="name">
                     <th mat-header-cell *matHeaderCellDef>Nome</th>
-                    <td mat-cell *matCellDef="let row">{{row.nome}}</td>
+                    <td mat-cell *matCellDef="let row">{{row.name}}</td>
                 </ng-container>
 
-                <ng-container matColumnDef="descricao">
+                <ng-container matColumnDef="description">
                     <th mat-header-cell *matHeaderCellDef>Descrição</th>
-                    <td mat-cell *matCellDef="let row">{{row.descricao}}</td>
+                    <td mat-cell *matCellDef="let row">{{row.description}}</td>
                 </ng-container>
 
-                <ng-container matColumnDef="na_fase_v">
+                <ng-container matColumnDef="na_phase_v">
                     <th mat-header-cell *matHeaderCellDef>Numero de ação fase V</th>
-                    <td mat-cell *matCellDef="let row">{{row.na_fase_v}}</td>
+                    <td mat-cell *matCellDef="let row">{{row.na_phase_v}}</td>
                 </ng-container>
 
-                <ng-container matColumnDef="na_fase_r">
+                <ng-container matColumnDef="na_phase_r">
                     <th mat-header-cell *matHeaderCellDef>Numero de ação fase R</th>
-                    <td mat-cell *matCellDef="let row">{{row.na_fase_r}}</td>
+                    <td mat-cell *matCellDef="let row">{{row.na_phase_r}}</td>
                 </ng-container>
 
-                <ng-container matColumnDef="initial_fase">
+                <ng-container matColumnDef="initial_phase">
                     <th mat-header-cell *matHeaderCellDef>Fase de ataque inicial</th>
-                    <td mat-cell *matCellDef="let row">{{row.initial_fase}}</td>
+                    <td mat-cell *matCellDef="let row">{{row.initial_phase}}</td>
                 </ng-container>
 
-                <ng-container matColumnDef="end_fase">
+                <ng-container matColumnDef="end_phase">
                     <th mat-header-cell *matHeaderCellDef>Fase de ataque final</th>
-                    <td mat-cell *matCellDef="let row">{{row.end_fase}}</td>
+                    <td mat-cell *matCellDef="let row">{{row.end_phase}}</td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
