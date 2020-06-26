@@ -8,5 +8,5 @@ export class PragaModel {
     na_phase_v: number;
     initial_phase: string;
     end_phase: string;
-    datecreated: string;
+    datecreated: Date;
 }

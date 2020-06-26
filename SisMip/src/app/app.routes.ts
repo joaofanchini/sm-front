@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { PlantioComponent } from './plantio/plantio.component';
 import { CadastroPlantioComponent } from './plantio/cadastro-plantio/cadastro-plantio.component';
 import { PragasComponent } from './pragas/pragas.component';
+import { CadastroPragaComponent } from './pragas/cadastro-praga/cadastro-praga.component';
 
 export const appRoutes: Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -42,6 +43,15 @@ export const appRoutes: Routes = [
         data: {
             title: 'Pragas',
             icon: 'pest_control'
+        }
+    },
+    {
+        path: 'pragas/cadastro',
+        component: CadastroPragaComponent,
+        canActivate: [NeedAuthGuard],
+        data: {
+            title: 'Cadastrar Praga',
+            icon: 'control_point'
         }
     },
     {

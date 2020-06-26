@@ -1,0 +1,72 @@
+<div class="container">
+    <mat-card>
+        <form class="example-form">
+            <div class="row">
+                <div class="item1">
+                    <mat-form-field>
+                        <mat-label>Nome</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="item2">
+                    <mat-form-field>
+                        <mat-label>Descrição</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="item3">
+                    <mat-form-field>
+                        <mat-label>Numero de ação fase V</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="item4">
+                    <mat-form-field>
+                        <mat-label>Numero de ação fase R</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item1">
+                    <mat-form-field>
+                        <mat-label>Fase de ataque final</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="item2">
+                    <mat-form-field>
+                        <mat-label>Fase de ataque inicial</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item1">
+                    <div *ngIf="file">
+                        <mat-label>{{fileName}}</mat-label>
+                    <button mat-mini-fab color="warn" (click)="cancelarImagem()">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    </div>
+                    <div *ngIf="!file">
+                        <button mat-button color="warn" (click)="selecionarArquivo()">
+                            <mat-icon>file_upload</mat-icon>
+                            Selecione Imagem
+                        </button>
+                        <input type="file" #fileInput id="fileUpload" name="fileUpload" accept="image/*"
+                            style="display:none;" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item2" style="text-align: right;">
+                    <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+                </div>
+                <div class="item3" style="text-align: left;">
+                    <button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -32,6 +33,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { CadastroPlantioComponent } from './plantio/cadastro-plantio/cadastro-plantio.component';
 import { PragasComponent } from './pragas/pragas.component';
 import { Interceptor } from './shared/https-request-interceptor';
+import { CadastroPragaComponent } from './pragas/cadastro-praga/cadastro-praga.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { Interceptor } from './shared/https-request-interceptor';
     LineChartComponent,
     PlantioComponent,
     CadastroPlantioComponent,
-    PragasComponent
+    PragasComponent,
+    CadastroPragaComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +68,7 @@ import { Interceptor } from './shared/https-request-interceptor';
     MatTableModule,
     MatPaginatorModule,
     Interceptor,
+    MatProgressBarModule,
     [RouterModule.forRoot(appRoutes, { useHash: false })]
   ],
   providers: [LoginService, NeedAuthGuard],
