@@ -16,11 +16,11 @@ export class PragaService {
   getByName(name: string): Observable<PragaModel> {
     return this.httpClient.get<PragaModel>(environment.apiUrl + '/plagues/' + name);
   }
-  create(praga: PragaModel){
-    return this.httpClient.post(environment.apiUrl + '/plagues/' + name, praga);
+  create(praga:PragaModel){
+    return this.httpClient.post(environment.apiUrl + '/plagues/create' + name, praga);
   }
   delete(praga: PragaModel) {
-    return this.httpClient.post(environment.apiUrl + '/plagues/create', praga);
+    return this.httpClient.post(environment.apiUrl + '/plagues/delete', praga);
   }
   update(praga: PragaModel) {
     return this.httpClient.post(environment.apiUrl + '/plagues/update', praga);

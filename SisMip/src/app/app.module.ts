@@ -34,6 +34,8 @@ import { CadastroPlantioComponent } from './plantio/cadastro-plantio/cadastro-pl
 import { PragasComponent } from './pragas/pragas.component';
 import { Interceptor } from './shared/https-request-interceptor';
 import { CadastroPragaComponent } from './pragas/cadastro-praga/cadastro-praga.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,8 @@ import { CadastroPragaComponent } from './pragas/cadastro-praga/cadastro-praga.c
     MatPaginatorModule,
     Interceptor,
     MatProgressBarModule,
+    MatSelectModule,
+    MatSnackBarModule,
     [RouterModule.forRoot(appRoutes, { useHash: false })]
   ],
   providers: [LoginService, NeedAuthGuard],

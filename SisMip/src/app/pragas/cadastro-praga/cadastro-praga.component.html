@@ -5,57 +5,67 @@
                 <div class="item1">
                     <mat-form-field>
                         <mat-label>Nome</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-                <div class="item2">
-                    <mat-form-field>
-                        <mat-label>Descrição</mat-label>
-                        <input matInput>
+                        <input matInput [(ngModel)]="pragaModel.name" name="name">
                     </mat-form-field>
                 </div>
                 <div class="item3">
                     <mat-form-field>
                         <mat-label>Numero de ação fase V</mat-label>
-                        <input matInput>
+                        <input matInput [(ngModel)]="pragaModel.na_phase_v" name="na_phase_v">
                     </mat-form-field>
                 </div>
                 <div class="item4">
                     <mat-form-field>
                         <mat-label>Numero de ação fase R</mat-label>
-                        <input matInput>
+                        <input matInput [(ngModel)]="pragaModel.na_phase_r" name="na_phase_r">
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
                 <div class="item1">
                     <mat-form-field>
-                        <mat-label>Fase de ataque final</mat-label>
-                        <input matInput>
+                        <mat-label>Fase de ataque inicial</mat-label>
+                        <mat-select [(ngModel)]="pragaModel.initial_phase" name="initial_phase">
+                            <mat-option *ngFor="let fase of pragaModel.fases" [value]="fase">
+                                {{fase}}
+                            </mat-option>
+                        </mat-select>
                     </mat-form-field>
                 </div>
                 <div class="item2">
                     <mat-form-field>
-                        <mat-label>Fase de ataque inicial</mat-label>
-                        <input matInput>
+                        <mat-label>Fase de ataque final</mat-label>
+                        <mat-select [(ngModel)]="pragaModel.end_phase" name="end_phase">
+                            <mat-option *ngFor="let fase of pragaModel.fases" [value]="fase">
+                                {{fase}}
+                            </mat-option>
+                        </mat-select>
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
                 <div class="item1">
-                    <div *ngIf="file">
+                    <mat-form-field>
+                        <mat-label>Descrição</mat-label>
+                        <textarea matInput [(ngModel)]="pragaModel.description" name="description"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="item2" style="text-align: center;">
+                    <div *ngIf="pragaModel.image">
+                        <img [src]="imgUrl" style="width: 80px;">
+                        <br>
                         <mat-label>{{fileName}}</mat-label>
-                    <button mat-mini-fab color="warn" (click)="cancelarImagem()">
-                        <mat-icon>delete</mat-icon>
-                    </button>
+                        &nbsp;&nbsp;
+                        <button mat-mini-fab color="warn" (click)="cancelarImagem()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
                     </div>
-                    <div *ngIf="!file">
+                    <div *ngIf="!pragaModel.image">
                         <button mat-button color="warn" (click)="selecionarArquivo()">
                             <mat-icon>file_upload</mat-icon>
                             Selecione Imagem
                         </button>
-                        <input type="file" #fileInput id="fileUpload" name="fileUpload" accept="image/*"
-                            style="display:none;" />
+                        <input type="file" #fileInput id="fileUpload" name="fileUpload" accept="image/*" style="display:none;" />
                     </div>
                 </div>
             </div>
