@@ -26,7 +26,6 @@ export class MainNavComponent {
   constructor(private breakpointObserver: BreakpointObserver,
     private loginService: LoginService,
     private titleService: Title,
-    private activatedRoute: ActivatedRoute,
     private router: Router) {
     router.events.pipe(
       filter(event => event instanceof ActivationStart))

@@ -10,10 +10,22 @@ import { environment } from 'src/environments/environment';
 export class PlantioService {
 
   constructor(private httpClient: HttpClient) { }
-  // getAll(): Observable<PlantioModel[]> {
-  //   return this.httpClient.get<PlantioModel[]>(environment.apiUrl + '/plagues/');
-  // }
-  // getByName(): Observable<PlantioModel> {
-  //   return this.httpClient.get<PlantioModel>(environment.apiUrl + '/plagues/');
-  // }
+  getAll(): Observable<PlantioModel[]> {
+    return this.httpClient.get<PlantioModel[]>(environment.apiUrl + '/plantations/');
+  }
+  getByName(name: string): Observable<PlantioModel> {
+    return this.httpClient.get<PlantioModel>(environment.apiUrl + '/plantations/' + name);
+  }
+  getById(id: string): Observable<PlantioModel> {
+    return this.httpClient.get<PlantioModel>(environment.apiUrl + '/plantations/' + id);
+  }
+  create(praga: PlantioModel) {
+    return this.httpClient.post(environment.apiUrl + '/plantations/create' + name, praga);
+  }
+  delete(praga: PlantioModel) {
+    return this.httpClient.post(environment.apiUrl + '/plantations/delete', praga);
+  }
+  update(praga: PlantioModel) {
+    return this.httpClient.post(environment.apiUrl + '/plantations/update', praga);
+  }
 }

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { PragaModel } from '../models/Praga.model';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { PragaModel } from '../models/praga.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,7 +17,10 @@ export class PragaService {
   getByName(name: string): Observable<PragaModel> {
     return this.httpClient.get<PragaModel>(environment.apiUrl + '/plagues/' + name);
   }
-  create(praga:PragaModel){
+  getById(id: string): Observable<PragaModel> {
+    return this.httpClient.get<PragaModel>(environment.apiUrl + '/plagues/' + id);
+  }
+  create(praga: PragaModel) {
     return this.httpClient.post(environment.apiUrl + '/plagues/create' + name, praga);
   }
   delete(praga: PragaModel) {

@@ -5,40 +5,62 @@
                 <div class="item1">
                     <mat-form-field>
                         <mat-label>Nome da Plantação</mat-label>
-                        <input matInput placeholder="Ex. Plantacao 1">
+                        <input matInput placeholder="Ex. Plantacao 1" [(ngModel)]="plantioModel.name" name="name">
                     </mat-form-field>
                 </div>
                 <div class="item2">
                     <mat-form-field>
-                        <mat-label>Descrição</mat-label>
-                        <input matInput>
+                        <mat-label>Área (m²)</mat-label>
+                        <input matInput [(ngModel)]="plantioModel.area" name="area">
                     </mat-form-field>
                 </div>
                 <div class="item3">
                     <mat-form-field>
-                        <mat-label>Área (m²)</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-                <div class="item4">
-                    <mat-form-field>
-                        <mat-label>Cidade</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-                <div class="item5">
-                    <mat-form-field>
-                        <mat-label>Estado</mat-label>
-                        <input matInput>
+                        <mat-label>CEP</mat-label>
+                        <input matInput [(ngModel)]="plantioModel.location.zipCode" name="zipCode" (input)="cepDigitado()">
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
                 <div class="item1">
                     <mat-form-field>
-                        <mat-label>Fase do Plantio</mat-label>
-                        <input matInput>
+                        <mat-label>Logradouro</mat-label>
+                        <input matInput [(ngModel)]="plantioModel.location.street" name="street">
                     </mat-form-field>
+                </div>
+                <div class="item2">
+                    <mat-form-field>
+                        <mat-label>Cidade</mat-label>
+                        <input matInput [(ngModel)]="plantioModel.location.city" name="city">
+                    </mat-form-field>
+                </div>
+                <div class="item3">
+                    <mat-form-field>
+                        <mat-label>Estado</mat-label>
+                        <input matInput [(ngModel)]="plantioModel.location.state" name="state">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item1">
+                    <mat-form-field>
+                        <mat-label>Numero</mat-label>
+                        <input matInput [(ngModel)]="plantioModel.location.number" name="number">
+                    </mat-form-field>
+                </div>
+                <div class="item2">
+                    <mat-form-field>
+                        <mat-label>Vizinhança</mat-label>
+                        <input matInput [(ngModel)]="plantioModel.location.neighborhood" name="neighborhood">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item2" style="text-align: right;">
+                    <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+                </div>
+                <div class="item3" style="text-align: left;">
+                    <button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button>
                 </div>
             </div>
         </form>

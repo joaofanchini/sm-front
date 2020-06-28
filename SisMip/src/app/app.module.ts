@@ -36,6 +36,8 @@ import { Interceptor } from './shared/https-request-interceptor';
 import { CadastroPragaComponent } from './pragas/cadastro-praga/cadastro-praga.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PragaService } from './pragas/praga.service';
+import { AppService } from './app.service';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSnackBarModule,
     [RouterModule.forRoot(appRoutes, { useHash: false })]
   ],
-  providers: [LoginService, NeedAuthGuard],
+  providers: [LoginService, PragaService, AppService, NeedAuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

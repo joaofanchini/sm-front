@@ -8,17 +8,11 @@
     <br>
     <div class="mat-elevation-z8">
         <div class="table-container">
-            <table mat-table [dataSource]="data" class="example-table" matSort matSortActive="created"
-                matSortDisableClear matSortDirection="desc">
+            <table mat-table [dataSource]="data" class="example-table" matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
                 <!-- Number Column -->
-                <ng-container matColumnDef="nome">
+                <ng-container matColumnDef="name">
                     <th mat-header-cell *matHeaderCellDef>Nome</th>
-                    <td mat-cell *matCellDef="let row">{{row.nome}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="descricao">
-                    <th mat-header-cell *matHeaderCellDef>Descrição</th>
-                    <td mat-cell *matCellDef="let row">{{row.descricao}}</td>
+                    <td mat-cell *matCellDef="let row">{{row.name}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="area">
@@ -26,19 +20,26 @@
                     <td mat-cell *matCellDef="let row">{{row.area}}</td>
                 </ng-container>
 
-                <ng-container matColumnDef="cidade">
+                <ng-container matColumnDef="city">
                     <th mat-header-cell *matHeaderCellDef>Cidade</th>
-                    <td mat-cell *matCellDef="let row">{{row.cidade}}</td>
+                    <td mat-cell *matCellDef="let row">{{row.location.city}}</td>
                 </ng-container>
 
-                <ng-container matColumnDef="estado">
+                <ng-container matColumnDef="state">
                     <th mat-header-cell *matHeaderCellDef>Estado</th>
-                    <td mat-cell *matCellDef="let row">{{row.estado}}</td>
+                    <td mat-cell *matCellDef="let row">{{row.location.state}}</td>
                 </ng-container>
 
-                <ng-container matColumnDef="fase_plantio">
-                    <th mat-header-cell *matHeaderCellDef>Fase do plantio</th>
-                    <td mat-cell *matCellDef="let row">{{row.fase_plantio}}</td>
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let row">
+                        <button mat-icon-button color="primary" routerLink="/plantio/detalhes/{{row._id}}">
+                            <mat-icon>remove_red_eye</mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn" (click)="removerItem(row)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

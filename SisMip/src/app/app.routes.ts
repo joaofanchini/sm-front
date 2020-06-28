@@ -37,6 +37,15 @@ export const appRoutes: Routes = [
         }
     },
     {
+        path: 'plantio/detalhes/:id',
+        component: CadastroPlantioComponent,
+        canActivate: [NeedAuthGuard],
+        data: {
+            title: 'Detalhes',
+            icon: 'eco'
+        }
+    },
+    {
         path: 'pragas',
         component: PragasComponent,
         canActivate: [NeedAuthGuard],
@@ -52,6 +61,15 @@ export const appRoutes: Routes = [
         data: {
             title: 'Cadastrar Praga',
             icon: 'control_point'
+        }
+    },
+    {
+        path: 'pragas/detalhes/:id',
+        component: CadastroPragaComponent,
+        canActivate: [NeedAuthGuard],
+        data: {
+            title: 'Detalhes',
+            icon: 'pest_control'
         }
     },
     {

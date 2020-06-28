@@ -10,11 +10,14 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
         req: HttpRequest<any>,
         next: HttpHandler,
     ): Observable<HttpEvent<any>> {
-        const dupReq = req.clone({
-            headers: req.headers.set('Authorization', this.loginService.getToken())
-                .set('Content-Type', 'application/json')
-        });
-        return next.handle(dupReq);
+        if (!req.url.includes('viacep')) {
+            const dupReq = req.clone({
+                headers: req.headers.set('Authorization', this.loginService.getToken())
+                    .set('Content-Type', 'application/json')
+            });
+            return next.handle(dupReq);
+        }
+        return next.handle(req);
     }
 }
 

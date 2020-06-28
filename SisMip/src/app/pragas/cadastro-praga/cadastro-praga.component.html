@@ -17,7 +17,7 @@
                 <div class="item4">
                     <mat-form-field>
                         <mat-label>Numero de ação fase R</mat-label>
-                        <input matInput [(ngModel)]="pragaModel.na_phase_r" name="na_phase_r">
+                        <input matInput [(value)]="pragaModel.na_phase_r" name="na_phase_r">
                     </mat-form-field>
                 </div>
             </div>
@@ -25,8 +25,8 @@
                 <div class="item1">
                     <mat-form-field>
                         <mat-label>Fase de ataque inicial</mat-label>
-                        <mat-select [(ngModel)]="pragaModel.initial_phase" name="initial_phase">
-                            <mat-option *ngFor="let fase of pragaModel.fases" [value]="fase">
+                        <mat-select [(value)]="pragaModel.initial_phase" name="initial_phase">
+                            <mat-option *ngFor="let fase of fases" [value]="fase">
                                 {{fase}}
                             </mat-option>
                         </mat-select>
@@ -35,8 +35,8 @@
                 <div class="item2">
                     <mat-form-field>
                         <mat-label>Fase de ataque final</mat-label>
-                        <mat-select [(ngModel)]="pragaModel.end_phase" name="end_phase">
-                            <mat-option *ngFor="let fase of pragaModel.fases" [value]="fase">
+                        <mat-select [(value)]="pragaModel.end_phase" name="end_phase">
+                            <mat-option *ngFor="let fase of fases" [value]="fase">
                                 {{fase}}
                             </mat-option>
                         </mat-select>

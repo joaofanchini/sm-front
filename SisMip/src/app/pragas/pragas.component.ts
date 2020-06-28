@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { Router, ActivatedRoute } from '@angular/router';
 import { PragaService } from './praga.service';
-import { PragaModel } from '../models/Praga.model';
+import { PragaModel } from '../models/praga.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
