@@ -22,30 +22,25 @@ export class CadastroPragaComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params.id;
-    this.pragaService.getById(id)
-      .subscribe(result => {
-        this.pragaModel = result;
-      });
+    if (id)
+      this.pragaService.getById(id)
+        .subscribe(result => {
+          this.pragaModel = result;
+          this.imgUrl = result.image;
+        });
   }
   selecionarArquivo() {
     const fileInput = this.fileInput.nativeElement;
     fileInput.onchange = () => {
 
-      this.fileName = fileInput.files[0].name;
-      var reader = new FileReader();
-      reader.onload = (e) => {
-        this.pragaModel.image = reader.result;
-      };
-      reader.readAsText(fileInput.files[0]);
-
-
       var readerUrl = new FileReader();
-
       readerUrl.onload = (e) => {
         this.imgUrl = e.target.result;
+        this.pragaModel.image = e.target.result;
       };
       readerUrl.readAsDataURL(fileInput.files[0]);
     };
+
     fileInput.click();
   }
   cancelarImagem() {
@@ -63,10 +58,10 @@ export class CadastroPragaComponent implements OnInit {
             });
           });
     }
-    else{
+    else {
       this.pragaService.create(this.pragaModel)
         .subscribe(result => {
-          this.router.navigate(['/pragas'])
+          this.router.navigate(['/pragas']);
         },
           error => {
             this._snackBar.open(error.error.error, 'OK', {
@@ -76,6 +71,6 @@ export class CadastroPragaComponent implements OnInit {
     }
   }
   cancelar() {
-
+    this.router.navigate(['/pragas']);
   }
 }

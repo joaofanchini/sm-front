@@ -22,10 +22,11 @@ export class CadastroPlantioComponent implements OnInit {
   ngOnInit(): void {
     this.plantioModel.location = new LocalizacaoModel();
     const id = this.route.snapshot.params.id;
-    this.plantioService.getById(id)
-      .subscribe(result => {
-        this.plantioModel = result;
-      });
+    if (id)
+      this.plantioService.getById(id)
+        .subscribe(result => {
+          this.plantioModel = result;
+        });
   }
   salvar() {
     if (this.plantioModel._id) {
