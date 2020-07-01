@@ -1,0 +1,36 @@
+<div class="container">
+    <mat-card>
+        <form class="example-form">
+            <div class="row">
+                <div class="item1">
+                    <mat-form-field>
+                        <mat-label>Nome Inseticida</mat-label>
+                        <input matInput [(ngModel)]="inseticidaModel.name" name="name">
+                    </mat-form-field>
+                </div>
+                <div class="item3">
+                    <mat-form-field>
+                        <mat-label>Preço por Volume</mat-label>
+                        <input matInput [(ngModel)]="inseticidaModel.price_per_volume" name="price_per_volume">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item1">
+                    <mat-form-field>
+                        <mat-label>Descrição</mat-label>
+                        <textarea matInput [(ngModel)]="inseticidaModel.description" name="description"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item2" style="text-align: right;">
+                    <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+                </div>
+                <div class="item3" style="text-align: left;">
+                    <button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

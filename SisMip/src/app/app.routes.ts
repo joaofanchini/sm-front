@@ -6,6 +6,9 @@ import { PlantioComponent } from './plantio/plantio.component';
 import { CadastroPlantioComponent } from './plantio/cadastro-plantio/cadastro-plantio.component';
 import { PragasComponent } from './pragas/pragas.component';
 import { CadastroPragaComponent } from './pragas/cadastro-praga/cadastro-praga.component';
+import { InseticidasComponent } from './inseticidas/inseticidas.component';
+import { CadastroInseticidaComponent } from './inseticidas/cadastro-inseticida/cadastro-inseticida.component';
+import { HistoricoPlantioComponent } from './historico-plantio/historico-plantio.component';
 
 export const appRoutes: Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -46,6 +49,15 @@ export const appRoutes: Routes = [
         }
     },
     {
+        path: 'historicoplantio',
+        component: HistoricoPlantioComponent,
+        canActivate: [NeedAuthGuard],
+        data: {
+            title: 'Historico de Plantação',
+            icon: 'eco'
+        }
+    },
+    {
         path: 'pragas',
         component: PragasComponent,
         canActivate: [NeedAuthGuard],
@@ -70,6 +82,24 @@ export const appRoutes: Routes = [
         data: {
             title: 'Detalhes',
             icon: 'pest_control'
+        }
+    },
+    {
+        path: 'inseticidas',
+        component: InseticidasComponent,
+        canActivate: [NeedAuthGuard],
+        data: {
+            title: 'Inseticidas',
+            icon: 'warning'
+        }
+    },
+    {
+        path: 'inseticidas/cadastro',
+        component: CadastroInseticidaComponent,
+        canActivate: [NeedAuthGuard],
+        data: {
+            title: 'Cadastrar Inseticida',
+            icon: 'warning'
         }
     },
     {

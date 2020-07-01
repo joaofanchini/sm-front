@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -38,6 +39,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PragaService } from './pragas/praga.service';
 import { AppService } from './app.service';
+import { InseticidasComponent } from './inseticidas/inseticidas.component';
+import { CadastroInseticidaComponent } from './inseticidas/cadastro-inseticida/cadastro-inseticida.component';
+import { HistoricoPlantioComponent } from './historico-plantio/historico-plantio.component';
+import { InseticidaService } from './inseticidas/inseticida.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +57,10 @@ import { AppService } from './app.service';
     PlantioComponent,
     CadastroPlantioComponent,
     PragasComponent,
-    CadastroPragaComponent
+    CadastroPragaComponent,
+    InseticidasComponent,
+    CadastroInseticidaComponent,
+    HistoricoPlantioComponent
   ],
   imports: [
     BrowserModule,
@@ -75,9 +83,10 @@ import { AppService } from './app.service';
     MatProgressBarModule,
     MatSelectModule,
     MatSnackBarModule,
+    MatTabsModule,
     [RouterModule.forRoot(appRoutes, { useHash: false })]
   ],
-  providers: [LoginService, PragaService, AppService, NeedAuthGuard],
+  providers: [LoginService, PragaService, InseticidaService, AppService, NeedAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

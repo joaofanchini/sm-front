@@ -53,7 +53,7 @@ export class CadastroPlantioComponent implements OnInit {
     }
   }
   cancelar() {
-
+    this.router.navigate(['/plantio']);
   }
   cepDigitado() {
     if (this.plantioModel.location.zipCode.length >= 8) {

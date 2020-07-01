@@ -14,15 +14,15 @@
             </mat-list-item>
             <mat-list-item routerLink="/pragas" [routerLinkActive]="['is-active']">
                 <mat-icon mat-list-icon>pest_control</mat-icon>
-                <h4 mat-line *ngIf="isExpanded">Controle de Pragas</h4>
+                <h4 mat-line *ngIf="isExpanded">Pragas</h4>
             </mat-list-item>
-            <mat-list-item>
+            <mat-list-item routerLink="/inseticidas" [routerLinkActive]="['is-active']">
+                <mat-icon mat-list-icon>warning</mat-icon>
+                <h4 mat-line *ngIf="isExpanded">Inseticidas</h4>
+            </mat-list-item>
+            <mat-list-item routerLink="/historicoplantio" [routerLinkActive]="['is-active']">
                 <mat-icon mat-list-icon>history</mat-icon>
                 <h4 mat-line *ngIf="isExpanded">Historico de Plantação</h4>
-            </mat-list-item>
-            <mat-list-item>
-                <mat-icon mat-list-icon>warning</mat-icon>
-                <h4 mat-line *ngIf="isExpanded">Gerenciamento de Inceticidas</h4>
             </mat-list-item>
             <mat-list-item (click)="logout()">
                 <mat-icon mat-list-icon>power_settings_new</mat-icon>
