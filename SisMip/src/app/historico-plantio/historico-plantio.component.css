@@ -1,7 +1,8 @@
-.sidenav-container {
-  height: 100%;
-  flex: 1 1 auto;
+.sidenav-container, mat-drawer-container{
+   height: 100%;
+   width: 100%;
 }
-mat-drawer-content{
-    display: flex; 
+mat-drawer{
+  width: 20%;
+  min-width: 20%;
 }

@@ -1,20 +1,25 @@
-<mat-drawer-container class="sidenav-container">
-    <mat-drawer mode="side" opened>
-        <mat-selection-list [multiple]="false">
-            <div mat-subheader>Plancações</div>
-            <mat-list-option *ngFor="let plantacao of plantacoes">
-                <mat-icon mat-list-icon style="color: rebeccapurple;">nature</mat-icon>
-                <div mat-line>{{plantacao.name}}</div>
-                <div mat-line> {{plantacao.datecreated | date}} </div>
-            </mat-list-option>
-        </mat-selection-list>
-    </mat-drawer>
-    <mat-drawer-content>
-        <mat-tab-group>
-            <mat-tab label="First"> Content 1 </mat-tab>
-            <mat-tab label="Second"> Content 2 </mat-tab>
-            <mat-tab label="Third"> Content 3 </mat-tab>
-        </mat-tab-group>
-
-    </mat-drawer-content>
-</mat-drawer-container>
+<div class="sidenav-container">
+    <mat-drawer-container>
+        <mat-drawer mode="side" opened>
+            <mat-selection-list #plats [multiple]="false" [(ngModel)]="plantacoesSel"
+                (ngModelChange)="onChangeSelected($event)">
+                <div mat-subheader>Plancações</div>
+                <mat-list-option *ngFor="let plantacao of plantacoes;" [value]="plantacao">
+                    <mat-icon mat-list-icon style="color: rebeccapurple;">nature</mat-icon>
+                    <div mat-line>{{plantacao.name}}</div>
+                    <div mat-line> {{plantacao.datecreated | date}} </div>
+                </mat-list-option>
+            </mat-selection-list>
+        </mat-drawer>
+        <mat-drawer-content>
+            <mat-tab-group *ngIf="plantacoesSel !=null">
+                <mat-tab label="Pesticidas Utilizados">
+                    {{plantacoesSel[0].name}}
+                </mat-tab>
+                <mat-tab label="Amostragem">
+                    <app-amostragem [plantacao]="plantacoesSel[0]"></app-amostragem>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

@@ -1,8 +1,8 @@
 <div class="container">
     <div style="text-align: right;">
-        <button mat-raised-button color="primary" routerLink="/inseticidas/cadastro">
+        <button mat-raised-button color="primary" routerLink="/pesticidas/cadastro">
             <mat-icon>control_point</mat-icon>
-            Cadastrar Inseticida
+            Cadastrar Pesticida
         </button>
     </div>
     <br>
@@ -28,7 +28,7 @@
                 <ng-container matColumnDef="actions">
                     <th mat-header-cell *matHeaderCellDef>Actions</th>
                     <td mat-cell *matCellDef="let row">
-                        <button mat-icon-button color="primary" routerLink="/plantio/detalhes/{{row._id}}">
+                        <button mat-icon-button color="primary" routerLink="/pesticidas/detalhes/{{row._id}}">
                             <mat-icon>remove_red_eye</mat-icon>
                         </button>
                         <button mat-icon-button color="warn" (click)="removerItem(row)">

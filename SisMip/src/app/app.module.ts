@@ -39,10 +39,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PragaService } from './pragas/praga.service';
 import { AppService } from './app.service';
-import { InseticidasComponent } from './inseticidas/inseticidas.component';
-import { CadastroInseticidaComponent } from './inseticidas/cadastro-inseticida/cadastro-inseticida.component';
 import { HistoricoPlantioComponent } from './historico-plantio/historico-plantio.component';
-import { InseticidaService } from './inseticidas/inseticida.service';
+import { PesticidasUtilizadosComponent } from './historico-plantio/pesticidas-utilizados/pesticidas-utilizados.component';
+import { AmostragemComponent } from './historico-plantio/amostragem/amostragem.component';
+import { PesticidasComponent } from './pesticidas/pesticidas.component';
+import { CadastroPesticidaComponent } from './pesticidas/cadastro-pesticida/cadastro-pesticida.component';
+import { PesticidaService } from './pesticidas/pesticidas.service';
 
 @NgModule({
   declarations: [
@@ -58,9 +60,13 @@ import { InseticidaService } from './inseticidas/inseticida.service';
     CadastroPlantioComponent,
     PragasComponent,
     CadastroPragaComponent,
-    InseticidasComponent,
-    CadastroInseticidaComponent,
-    HistoricoPlantioComponent
+    PesticidasComponent,
+    CadastroPesticidaComponent,
+    HistoricoPlantioComponent,
+    PesticidasUtilizadosComponent,
+    AmostragemComponent,
+    PesticidasComponent,
+    CadastroPesticidaComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +92,7 @@ import { InseticidaService } from './inseticidas/inseticida.service';
     MatTabsModule,
     [RouterModule.forRoot(appRoutes, { useHash: false })]
   ],
-  providers: [LoginService, PragaService, InseticidaService, AppService, NeedAuthGuard],
+  providers: [LoginService, PragaService, PesticidaService, AppService, NeedAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

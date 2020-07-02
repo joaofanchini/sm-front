@@ -9,12 +9,17 @@ import { PlantioService } from '../plantio/plantio.service';
 })
 export class HistoricoPlantioComponent implements OnInit {
   plantacoes: PlantioModel[];
+  plantacoesSel: PlantioModel[];
   constructor(private plantioService: PlantioService) { }
 
   ngOnInit(): void {
     this.plantioService.getAll().subscribe(result => {
       this.plantacoes = result;
+      this.plantacoesSel = [result[0]];
     });
   }
-
+  onChangeSelected(plantacao) {
+    console.log(plantacao);
+      
+  }
 }
