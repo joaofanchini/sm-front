@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { PragaModel } from '../models/praga.model';
+import { PragaModel } from 'src/app/models/praga.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
