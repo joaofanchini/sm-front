@@ -22,7 +22,7 @@
         <div class="item1">
             <mat-form-field>
                 <mat-label>Praga Encontrada</mat-label>
-                <mat-select [(value)]="data.plagues[i].plague_id" name="plague_id">
+                <mat-select [(value)]="data.plagues[i].plague_id._id" name="plague_id">
                     <mat-option *ngFor="let praga of pragas" [value]="praga._id">
                         {{praga.name}}
                     </mat-option>

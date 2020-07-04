@@ -1,4 +1,24 @@
-<div style="display: block">
-    <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
-        [title]="chartOptions.title"></apx-chart>
+<div class="container">
+    <div class="sidenav-container">
+        <mat-drawer-container>
+            <mat-drawer mode="side" opened>
+                <mat-selection-list #plats [multiple]="false" [(ngModel)]="plantacaoSelecionada"
+                    (ngModelChange)="onChangeSelected($event)">
+                    <div mat-subheader>Plantações</div>
+                    <mat-list-option *ngFor="let plantacao of plantacoes;" [value]="plantacao">
+                        <mat-icon mat-list-icon style="color: rebeccapurple;">nature</mat-icon>
+                        <div mat-line>{{plantacao.name}}</div>
+                        <div mat-line> {{plantacao.datecreated | date}} </div>
+                    </mat-list-option>
+                </mat-selection-list>
+            </mat-drawer>
+            <mat-drawer-content>
+                <mat-card style="width: 95%; border-radius: 0px;">
+                    <mat-card-title>{{plantacaoSelecionada.name}} - {{titulo}}</mat-card-title>
+                    <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+                        [(title)]="chartOptions.title" [colors]="chartOptions.colors"></apx-chart>
+                </mat-card>
+            </mat-drawer-content>
+        </mat-drawer-container>
+    </div>
 </div>

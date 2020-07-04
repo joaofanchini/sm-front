@@ -25,10 +25,12 @@ export class DialogAmostragemComponent implements OnInit {
     this.data = new AmostragemModel;
     this.data.plagues = [];
     this.data.plagues[0] = new PragaEncontradaModel();
+    this.data.plagues[0].plague_id = new PragaModel();
     this.pragaService.getAll().subscribe(result => this.pragas = result)
   }
   addPragas() {
     let praga: PragaEncontradaModel = new PragaEncontradaModel();
+    praga.plague_id = new PragaModel();
     this.data.plagues.push(praga);
   }
 }

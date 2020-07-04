@@ -4,45 +4,87 @@ import {
   ApexAxisChartSeries,
   ApexChart,
   ApexXAxis,
-  ApexTitleSubtitle
+  ApexTitleSubtitle,
+  ApexFill
 } from "ng-apexcharts";
+import { PlantioService } from 'src/app/plantio/plantio.service';
+import { PlantioModel } from 'src/app/models/plantio.model';
+import { PragaService } from 'src/app/pragas/praga.service';
+import { PragaModel } from 'src/app/models/praga.model';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
   xaxis: ApexXAxis;
   title: ApexTitleSubtitle;
+  colors: string[];
 };
 @Component({
   selector: 'app-bar-chart-horizontal',
   templateUrl: './bar-chart-horizontal.component.html',
-  styles: [
-  ]
+  styleUrls: ['./bar-chart-horizontal.component.css']
 })
 export class BarChartHorizontalComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
-  constructor() { }
-
+  constructor(private plantioService: PlantioService,
+    private pragaService: PragaService) { }
+  plantacoes: PlantioModel[];
+  plantacaoSelecionada: PlantioModel;
+  pragas: PragaModel[];
+  titulo: string;
   ngOnInit(): void {
+    this.plotChart();
+    this.plantioService.getAll().subscribe(result => {
+      this.plantacoes = result;
+      this.plantacaoSelecionada = result[0];
+      this.preencherDados();
+    });
+  }
+  onChangeSelected(event) {
+    this.plantacaoSelecionada = event[0];
+    this.preencherDados();
+  }
+
+  preencherDados() {
+    let amostLength = this.plantacaoSelecionada.samplings.length;
+    this.titulo = "Amostragem: " + amostLength;
+    let qtdPragasArray: number[] = [];
+    while (this.chartOptions.xaxis.categories.length > 0) {
+      this.chartOptions.xaxis.categories.pop();
+    }
+    // this.chartOptions.colors = [];
+    this.plantacaoSelecionada.samplings[amostLength - 1]
+      .plagues.forEach(item => {
+        this.chartOptions.xaxis.categories.push(item.plague_id.name);
+        qtdPragasArray.push(item.quantity);
+        // let color = item.warning ? "#F78D84" : "#3CBBC1";
+        // this.chartOptions.colors.push(color);
+      });
+    this.chartOptions.series = [{
+      name: "My-series",
+      data: qtdPragasArray
+    }]
+  }
+
+  plotChart() {
     this.chartOptions = {
       series: [
-        {
-          name: "My-series",
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
-        }
       ],
       chart: {
-        height: 350,
-        type: "bar"
+        height: 300,
+        type: "bar",
       },
       title: {
-        text: "My First Angular Chart"
+        text: this.titulo
       },
       xaxis: {
-        categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
-      }
+        categories: []
+      },
+      colors: [
+        "#F78D84", "#3CBBC1"
+      ]
     };
   }
 }
