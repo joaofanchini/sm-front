@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>Nova amostragem</h1>
+<div mat-dialog-content>
+    <div class="row">
+        <div class="item1">
+            <mat-form-field>
+                <mat-label>Fase Atual da Plantação</mat-label>
+                <mat-select [(value)]="data.current_plantation_phase" name="current_plantation_phase">
+                    <mat-option *ngFor="let fase of fases" [value]="fase">
+                        {{fase}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="item2">
+            <mat-form-field>
+                <mat-label>Plantas desfolhadas</mat-label>
+                <input matInput [(ngModel)]="data.defoliated_plants" name="defoliated_plants">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row" *ngFor="let praga of data.plagues; let i= index">
+        <div class="item1">
+            <mat-form-field>
+                <mat-label>Praga Encontrada</mat-label>
+                <mat-select [(value)]="data.plagues[i].plague_id" name="plague_id">
+                    <mat-option *ngFor="let praga of pragas" [value]="praga._id">
+                        {{praga.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="item2">
+            <mat-form-field>
+                <mat-label>Quantidade</mat-label>
+                <input matInput [(ngModel)]="data.plagues[i].quantity" name="quantity">
+            </mat-form-field>
+        </div>
+        <div class="item3">
+            <button mat-button cdkFocusInitial (click)="addPragas()" *ngIf="i ==data.plagues.length -1">Add
+                mais...</button>
+        </div>
+    </div>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

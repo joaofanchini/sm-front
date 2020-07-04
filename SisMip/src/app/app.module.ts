@@ -23,11 +23,6 @@ import { appRoutes } from './app.routes';
 import { LoginService } from './login/login.service';
 import { NeedAuthGuard } from './guards/need-auth-guard';
 import { MatCardModule } from '@angular/material/card';
-import { ChartsModule } from 'ng2-charts';
-import { BarChartComponent } from './dashboard/bar-chart/bar-chart.component';
-import { DoughnutChartComponent } from './dashboard/doughnut-chart/doughnut-chart.component';
-import { RadarChartComponent } from './dashboard/radar-chart/radar-chart.component';
-import { LineChartComponent } from './dashboard/line-chart/line-chart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlantioComponent } from './plantio/plantio.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -45,17 +40,17 @@ import { AmostragemComponent } from './historico-plantio/amostragem/amostragem.c
 import { PesticidasComponent } from './pesticidas/pesticidas.component';
 import { CadastroPesticidaComponent } from './pesticidas/cadastro-pesticida/cadastro-pesticida.component';
 import { PesticidaService } from './pesticidas/pesticidas.service';
-
+import { DialogAmostragemComponent } from './historico-plantio/amostragem/dialog-amostragem/dialog-amostragem.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogPesticidaUtilizadoComponent } from './historico-plantio/pesticidas-utilizados/dialog-pesticida-utilizado/dialog-pesticida-utilizado.component';
+import { BarChartHorizontalComponent } from './dashboard/bar-chart-horizontal/bar-chart-horizontal.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainNavComponent,
     DashboardComponent,
-    BarChartComponent,
-    DoughnutChartComponent,
-    RadarChartComponent,
-    LineChartComponent,
     PlantioComponent,
     CadastroPlantioComponent,
     PragasComponent,
@@ -66,7 +61,10 @@ import { PesticidaService } from './pesticidas/pesticidas.service';
     PesticidasUtilizadosComponent,
     AmostragemComponent,
     PesticidasComponent,
-    CadastroPesticidaComponent
+    CadastroPesticidaComponent,
+    DialogAmostragemComponent,
+    DialogPesticidaUtilizadoComponent,
+    BarChartHorizontalComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +79,7 @@ import { PesticidaService } from './pesticidas/pesticidas.service';
     MatListModule,
     FormsModule,
     MatCardModule,
-    ChartsModule,
+    NgApexchartsModule,
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
@@ -90,6 +88,7 @@ import { PesticidaService } from './pesticidas/pesticidas.service';
     MatSelectModule,
     MatSnackBarModule,
     MatTabsModule,
+    MatDialogModule,
     [RouterModule.forRoot(appRoutes, { useHash: false })]
   ],
   providers: [LoginService, PragaService, PesticidaService, AppService, NeedAuthGuard],

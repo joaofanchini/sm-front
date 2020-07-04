@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Nova amostragem</h1>
+<div mat-dialog-content>
+    <div class="row">
+        <div class="item1">
+            <mat-form-field>
+                <mat-label>Pesticida</mat-label>
+                <mat-select [(value)]="data.pesticide_id" name="pesticide_id">
+                    <mat-option *ngFor="let pesticida of pesticidas" [value]="pesticida._id">
+                        {{pesticida.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="item2">
+            <mat-form-field>
+                <mat-label>Volume Aplicado</mat-label>
+                <input matInput [(ngModel)]="data.volume_applied" name="volume_applied">
+            </mat-form-field>
+        </div>
+    </div>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

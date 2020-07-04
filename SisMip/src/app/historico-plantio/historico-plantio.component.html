@@ -3,7 +3,7 @@
         <mat-drawer mode="side" opened>
             <mat-selection-list #plats [multiple]="false" [(ngModel)]="plantacoesSel"
                 (ngModelChange)="onChangeSelected($event)">
-                <div mat-subheader>Plancações</div>
+                <div mat-subheader>Plantações</div>
                 <mat-list-option *ngFor="let plantacao of plantacoes;" [value]="plantacao">
                     <mat-icon mat-list-icon style="color: rebeccapurple;">nature</mat-icon>
                     <div mat-line>{{plantacao.name}}</div>
@@ -13,11 +13,11 @@
         </mat-drawer>
         <mat-drawer-content>
             <mat-tab-group *ngIf="plantacoesSel !=null">
-                <mat-tab label="Pesticidas Utilizados">
-                    {{plantacoesSel[0].name}}
-                </mat-tab>
                 <mat-tab label="Amostragem">
                     <app-amostragem [plantacao]="plantacoesSel[0]"></app-amostragem>
+                </mat-tab>
+                <mat-tab label="Pesticidas Utilizados">
+                    <app-pesticidas-utilizados [plantacao]="plantacoesSel[0]"></app-pesticidas-utilizados>
                 </mat-tab>
             </mat-tab-group>
         </mat-drawer-content>

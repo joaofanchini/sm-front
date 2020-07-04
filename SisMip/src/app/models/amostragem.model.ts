@@ -1,9 +1,10 @@
-import { PragaModel } from './praga.model';
+import { PragaEncontradaModel } from './praga-encontrada.model';
 
 export class AmostragemModel {
     _id: string;
+    name_plantation:string;
     current_plantation_phase: string;
-    plagues: PragaModel[];
+    plagues: PragaEncontradaModel[];
     defoliated_plants: String;
     datecreated: Date;
 }

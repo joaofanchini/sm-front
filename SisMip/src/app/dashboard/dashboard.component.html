@@ -1,37 +1,50 @@
 <div class="container">
     <div class="row">
         <div class="item1">
-            <mat-card>
-                <mat-card-header></mat-card-header>
-                <mat-card-content>
-                    <app-bar-chart></app-bar-chart>
-                </mat-card-content>
+            <mat-card style="background: linear-gradient(40deg,rgba(101, 224, 168, 0.9),rgba(105, 199, 112, 0.9)) !important">
+                <mat-card-title>
+                    {{qtdPlantacoes}}
+                    <mat-card-title-group>
+                        <mat-icon style="color: green;">eco</mat-icon>
+                    </mat-card-title-group>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    Plantaçoes
+                </mat-card-subtitle>
             </mat-card>
         </div>
         <div class="item2">
-            <mat-card>
-                <mat-card-header></mat-card-header>
-                <mat-card-content>
-                    <app-doughnut-chart></app-doughnut-chart>
-                </mat-card-content>
+            <mat-card
+                style="background: linear-gradient(40deg,rgba(255, 175, 93, 0.9),rgba(255, 231, 231, 0.9)) !important">
+                <mat-card-title>
+                    {{qtdPesticidas}}
+                    <mat-card-title-group>
+                        <mat-icon style="color: indianred;">warning</mat-icon>
+                    </mat-card-title-group>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    Pesticidas
+                </mat-card-subtitle>
             </mat-card>
         </div>
         <div class="item3">
-            <mat-card>
-                <mat-card-header></mat-card-header>
-                <mat-card-content>
-                    <app-radar-chart></app-radar-chart>
-                </mat-card-content>
+            <mat-card style="background: linear-gradient(40deg,rgba(255, 255, 255, 0.9),rgba(255, 11, 11, 0.9)) !important">
+                <mat-card-title>
+                    {{qtdPragas}}
+                    <mat-card-title-group>
+                        <mat-icon style="color: navajowhite;">pest_control</mat-icon>
+                    </mat-card-title-group>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    Pragas
+                </mat-card-subtitle>
             </mat-card>
         </div>
     </div>
     <div class="row">
         <div class="item1">
             <mat-card>
-                <mat-card-header></mat-card-header>
-                <mat-card-content>
-                    <app-line-chart></app-line-chart>
-                </mat-card-content>
+                <app-bar-chart-horizontal></app-bar-chart-horizontal>
             </mat-card>
         </div>
     </div>

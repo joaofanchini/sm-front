@@ -1,6 +1,8 @@
+import { PesticidaModel } from './pesticida.model';
+
 export class PesticidaAplicadoModel{
-    _id:string;
+    pesticide: PesticidaModel;
     pesticide_id: string;
     volume_applied: number;
-    datecreated: Date;
+    name_plantation: string;
 }

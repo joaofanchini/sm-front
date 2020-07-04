@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { PlantioModel } from '../models/plantio.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { AmostragemModel } from '../models/amostragem.model';
+import { PesticidaAplicadoModel } from '../models/pesticida-aplicado.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +29,20 @@ export class PlantioService {
   }
   update(praga: PlantioModel) {
     return this.httpClient.post(environment.apiUrl + '/plantations/update', praga);
+  }
+  inserirAmostragem(amostragem: AmostragemModel) {
+    return this.httpClient.post(environment.apiUrl + '/aggregate/sampling', amostragem);
+  }
+  inserirPesticidaAplicado(pesticida: PesticidaAplicadoModel) {
+    let pesticidaAplicado = {
+      "name_plantation": pesticida.name_plantation,
+      "pesticides": [
+        {
+          "pesticide_id": pesticida.pesticide_id,
+          "volume_applied": pesticida.volume_applied
+        }
+      ]
+    };
+    return this.httpClient.post(environment.apiUrl + '/aggregate/pesticides', pesticidaAplicado);
   }
 }
