@@ -83,7 +83,7 @@ export class BarChartHorizontalComponent implements OnInit {
         categories: []
       },
       colors: [
-        "#F78D84", "#3CBBC1"
+        "#3CBBC1", "#F78D84"
       ]
     };
   }

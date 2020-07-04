@@ -55,7 +55,7 @@ export class LoginService implements OnInit {
         this.setCookie(Token, "");
         this.usuarioLogado = false;
         this.mostrarMenuEmitter.emit(this.usuarioLogado);
-        document.location.reload();
+        document.location.href = "/login";
     }
     getToken() {
         let tk = sessionStorage.getItem(Token);
